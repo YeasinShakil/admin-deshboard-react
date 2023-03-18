@@ -5,10 +5,12 @@ import { ColorModeContext, tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import CampaignOutlinedIcon from '@mui/icons-material/CampaignOutlined';
+import Button from '@mui/material/Button';
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import ControlPointOutlinedIcon from '@mui/icons-material/ControlPointOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
 const Topbar = () => {
     const theme = useTheme();
@@ -17,6 +19,14 @@ const Topbar = () => {
 
     return (
         <Box display='flex' justifyContent='space-between' p={2}>
+
+            <Box>
+                <Button style={{color: colors.primary[100]}}>Chrome Extension</Button>
+                <Button style={{color: colors.primary[100]}}>Plagiarism Credits</Button>
+                <Button style={{color: colors.primary[100]}}>API</Button>
+                <Button style={{color: colors.primary[100]}}>Help Center</Button>
+    
+            </Box>
 
             {/* Search Bar */}
             <Box display='flex' backgroundColor={colors.primary[400]} borderRadius='3px'>
@@ -29,14 +39,17 @@ const Topbar = () => {
             {/* Icons */}
             <Box display='flex'>
                 <IconButton onClick={colorMode.toggleColorMode} >
-                    {theme.palette.mode === 'dark' ? (<DarkModeOutlinedIcon />) : (<LightModeOutlinedIcon />)}
+                    {theme.palette.mode === 'light' ? (<LightModeOutlinedIcon />) : (<DarkModeOutlinedIcon />)}
                 </IconButton>
                 <IconButton>
-                    <NotificationsOutlinedIcon />
+                    <HelpOutlineOutlinedIcon />
                 </IconButton>
                 <IconButton>
-                    <SettingsOutlinedIcon />
+                    <CampaignOutlinedIcon />
                 </IconButton>
+                <Button variant="contained" startIcon={<ControlPointOutlinedIcon />}>
+                    Create Content
+                </Button>
                 <IconButton>
                     <PersonOutlinedIcon />
                 </IconButton>
